@@ -10,7 +10,7 @@ function App() {
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    background: beige;
+    background: silver;
   `;
   const Button = styled.div`
     width: 200px;
@@ -19,10 +19,10 @@ function App() {
     border-radius: 15px;
   `;
   const Display = styled.div`
-    width: 300px;
+    width: 600px;
     padding: 30px;
     background: black;
-    color:red
+    color: red;
     border-radius: 10px;
   `;
 
@@ -51,12 +51,16 @@ function App() {
   };
   useEffect(() => {
     if (ball >= 4) {
-      return setBall(0);
+      return setBall(0), setStrike(0);
     }
     if (strike >= 3) {
-      return setStrike(0);
+      return setStrike(0), setBall(0);
     }
-  }, [ball, strike]);
+    if (hit === 1) {
+      return setBall(0), setStrike(0);
+    }
+    
+  }, [ball, strike, hit]);
   return (
     <div className="App">
       <Container>

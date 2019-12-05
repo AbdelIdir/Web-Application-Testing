@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import styled from "styled-components";
@@ -9,7 +9,7 @@ function App() {
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    background:beige;
+    background: beige;
   `;
   const Button = styled.div`
     width: 200px;
@@ -22,11 +22,22 @@ function App() {
     padding: 30px;
     background: green;
   `;
+
+  const [count, setCount] = useState(0);
+
+  const countHandler = event => {
+    event.preventDefault();
+    setCount(count + 2);
+  };
+
   return (
     <div className="App">
       <Container>
-        <Button>hi</Button>
-        <Display></Display>
+        <Button onClick={countHandler}>hi</Button>
+        <Display>
+          <p>Balls:{count}</p>
+          <p>Strikes:</p>
+        </Display>
       </Container>
     </div>
   );

@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import styled from "styled-components";
 
-function App() {
+ function App() {
   const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -28,7 +28,6 @@ function App() {
 
   const [strike, setStrike] = useState(0);
   const [ball, setBall] = useState(0);
-  const [foul, setFoul] = useState(0);
   const [hit, setHit] = useState(0);
 
   const strikeHandler = event => {

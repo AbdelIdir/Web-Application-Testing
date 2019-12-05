@@ -21,7 +21,8 @@ function App() {
   const Display = styled.div`
     width: 300px;
     padding: 30px;
-    background: green;
+    background: black;
+    color:red
     border-radius: 10px;
   `;
 
@@ -32,16 +33,16 @@ function App() {
 
   const strikeHandler = event => {
     event.preventDefault();
-    setStrike(previouscount => previouscount + 2);
+    setStrike(previouscount => previouscount + 1);
   };
 
   const foulHandler = event => {
     event.preventDefault();
-    setFoul(previouscount => previouscount + 2);
+    setFoul(previouscount => previouscount + 1);
   };
   const hitHandler = event => {
     event.preventDefault();
-    setHit(previouscount => previouscount + 2);
+    setHit(previouscount => previouscount + 1);
   };
 
   const ballHandler = event => {
@@ -52,7 +53,7 @@ function App() {
     if (ball >= 4) {
       return setBall(0);
     }
-    if (strike >= 4) {
+    if (strike >= 3) {
       return setStrike(0);
     }
   }, [ball, strike]);
@@ -60,8 +61,8 @@ function App() {
     <div className="App">
       <Container>
         <Display>
-          <p>Balls:{ball}</p>
-          <p>Strikes:{strike}</p>
+          <p>Balls: {ball}</p>
+          <p>Strikes: {strike}</p>
         </Display>
         <Button onClick={strikeHandler}>Strike</Button>
         <Button onClick={ballHandler}>Ball</Button>

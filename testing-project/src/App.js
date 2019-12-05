@@ -10,7 +10,7 @@ function App() {
     justify-content: space-around;
     align-items: center;
     height: 100vh;
-    background: silver;
+    background: #b39797;
   `;
   const Button = styled.div`
     width: 200px;
@@ -38,7 +38,13 @@ function App() {
 
   const foulHandler = event => {
     event.preventDefault();
-    setFoul(previouscount => previouscount + 1);
+    if (strike === 0) {
+      return setStrike(previouscount => previouscount + 1);
+    } else if (strike === 1) {
+      return setStrike(previouscount => previouscount + 1);
+    } else if (strike === 2) {
+      return setStrike(previouscount => previouscount);
+    }
   };
   const hitHandler = event => {
     event.preventDefault();
@@ -59,7 +65,6 @@ function App() {
     if (hit === 1) {
       return setBall(0), setStrike(0);
     }
-    
   }, [ball, strike, hit]);
   return (
     <div className="App">
